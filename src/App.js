@@ -18,10 +18,12 @@ function App() {
   return (
     <div id="App" className="App">
       <nav>
-        <div className="logo">
-          <a href="#App">RXFIFRAIS.</a>
-        </div>
         <ul>
+          <li className="cta">
+            <a className="hover-underline-animation" href="#App">
+              RXFIFRAIS.
+            </a>
+          </li>
           <li className="cta">
             <a className="hover-underline-animation" href="#App">
               HOME
@@ -38,25 +40,23 @@ function App() {
             </a>
           </li>
         </ul>
+        {/* <div className="animate_scroll"></div> */}
       </nav>
       <div className="home">
         <Scroll />
         <div className="home_desk">
-          <h1 className="animate__animated animate__slideInLeft">
-            Hey, you can call me <span style={{ color: "#00bfff" }}>Rais</span>
+          <h1 className="animate__animated animate__fadeIn">Hi,</h1>
+          <h1 className="animate__animated animate__fadeIn ">
+            I'm <span style={{ color: "#00bfff" }}>Rais</span>,
           </h1>
-          <h2 className="animate__animated animate__fadeIn ">
-            I am a{" "}
-            <span id="jobDesk" style={{ color: "#00bfff" }}>
-              Frontend Developer
-            </span>
-          </h2>
-          <p className="desk animate__animated animate__zoomIn">
-            I am a Junior Frontend Developer with passion and expertise in
-            developing attractive and responsive user interfaces for web
-            applications.
-          </p>
-          <div className="social_wrapper"></div>
+          <h1 className="animate__animated animate__fadeIn">
+            <span style={{ color: "#00bfff" }}>Website</span> & {""}
+            <span style={{ color: "#8739f9" }}>Software </span>
+            <span style={{ color: "#f0f0f0" }}>Developer</span>
+          </h1>
+          <h3 className="animate__animated animate__fadeIn">
+            Front End Developer // .NET Developer
+          </h3>
           <button className="btn_contact" onClick={handleClick}>
             <p className="text">Contact</p>
           </button>

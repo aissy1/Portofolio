@@ -30,44 +30,21 @@ nav {
   align-items: center;
   justify-content: space-evenly;
   top: 0;
-  height: 80px;
-  width: 100%;
-  background-color: var(--color-1);
-  border-radius: 0 0 20px 20px;
+  height: 60px;
+  width: 90%;
+  background-color: #00bfff6c;
+  backdrop-filter: blur(10px);
+  transform: translate(75px, 20px);
+  border-radius: 20px;
   z-index: 99;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: start;
-  width: 30%;
-  height: 100%;
-  transform-origin: bottom;
-  transform: translate(-175px, 0);
-}
-
-.logo a {
-  font-size: 18px;
-  padding-bottom: 7px;
-  text-decoration: none;
-  color: var(--color-5);
-  cursor: pointer;
-  letter-spacing: 3px;
-}
-
-.logo:hover .hover-underline-animation:after {
-  transform: scaleX(1);
-  transform-origin: bottom;
 }
 
 ul {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   text-align: start;
-  width: 30%;
+  width: 70%;
   height: 30px;
   padding: 0;
   margin: 0;
@@ -82,6 +59,10 @@ li {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+li:first-child {
+  margin-right: 30rem;
 }
 
 .cta a {
@@ -116,10 +97,16 @@ li {
   transform-origin: bottom;
 }
 
+.animate_scroll {
+  background-color: #00bfff;
+  height: 10px;
+}
+
 #back-to-top-btn {
   display: none;
   position: fixed;
   top: 90px;
+  width: 110px;
   padding: 10px;
   background-color: var(--color-6);
   color: var(--color-1);
@@ -163,6 +150,7 @@ li {
   width: 600px;
   height: 200px;
   transform: translate(-60px, 0);
+  letter-spacing: 3;
 }
 
 .home_desk h1,
@@ -171,10 +159,9 @@ h2 {
   margin: 0;
 }
 
-.desk {
-  color: var(--color-6);
-  font-size: 20px;
-  margin-top: 10px;
+.home_desk h3 {
+  color: #393E46;
+  margin: 0;
 }
 
 .btn_contact {
@@ -190,6 +177,7 @@ h2 {
   text-align: center;
   color: var(--color-1);
   padding: 0;
+  margin-top: 20px;
   overflow: hidden;
 }
 
@@ -348,7 +336,7 @@ h2 {
 
 .profile_bottom {
   border: 5px double var(--color-2);
-  background-color: var(--color-5);
+  background-color: var(--color-8);
   display: flex;
   align-items: center;
   justify-content: center;
