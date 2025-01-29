@@ -1,41 +1,104 @@
-import React from "react";
-import { DiHtml5 } from "react-icons/di";
-import { DiCss3 } from "react-icons/di";
-import { FaBootstrap } from "react-icons/fa6";
+import { useState, useEffect, useRef } from "react";
+import { DiHtml5, DiCss3, DiJsBadge, DiReact } from "react-icons/di";
+import { FaBootstrap } from "react-icons/fa";
 import { SiPhp } from "react-icons/si";
-import { DiJsBadge } from "react-icons/di";
-import { DiReact } from "react-icons/di";
-import { FaFigma } from "react-icons/fa";
-import "./carousel.css";
 
 const Competencies = () => {
+  const [isAnimated, setAnimate] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const currentRef = sectionRef.current;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setAnimate(true);
+        } else {
+          setAnimate(false);
+        }
+      },
+      { threshold: 0.8 }
+    );
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
   return (
-    <div className="skills_wrapper">
+    <div className="skills_wrapper" ref={sectionRef}>
       <div className="content">
-        <DiHtml5 className="icons" style={{ color: "#FF6D00" }} />
+        <DiHtml5
+          className={
+            isAnimated
+              ? "icons animate__animated animate__zoomIn animate__slow"
+              : "icons"
+          }
+          style={{ display: isAnimated ? "block" : "none", color: "#FF6D00" }}
+        />
       </div>
       <div className="content">
-        <DiCss3 className="icons" style={{ color: "cyan" }} />
+        <DiCss3
+          className={
+            isAnimated
+              ? "icons animate__animated animate__zoomIn animate__slow"
+              : "icons"
+          }
+          style={{ display: isAnimated ? "block" : "none", color: "cyan" }}
+        />
       </div>
       <div className="content">
-        <FaBootstrap className="icons" style={{ color: "#8739f9" }} />
+        <FaBootstrap
+          className={
+            isAnimated
+              ? "icons animate__animated animate__zoomIn animate__slow"
+              : "icons"
+          }
+          style={{ display: isAnimated ? "block" : "none", color: "#8739f9" }}
+        />
       </div>
       <div className="content">
-        <SiPhp className="icons" style={{ color: "#DCD5F2" }} />
+        <SiPhp
+          className={
+            isAnimated
+              ? "icons animate__animated animate__zoomIn animate__slow"
+              : "icons"
+          }
+          style={{ display: isAnimated ? "block" : "none", color: "#DCD5F2" }}
+        />
       </div>
       <div className="content">
-        <DiJsBadge className="icons" style={{ color: "yellow" }} />
+        <DiJsBadge
+          className={
+            isAnimated
+              ? "icons animate__animated animate__zoomIn animate__slow"
+              : "icons"
+          }
+          style={{ display: isAnimated ? "block" : "none", color: "yellow" }}
+        />
       </div>
       <div className="content">
-        <DiReact className="icons_react" style={{ color: "cyan" }} />
-      </div>
-      <div className="content">
-        <FaFigma
-          className="icons"
-          style={{ height: "max-content", color: "#fff" }}
+        <DiReact
+          className={
+            isAnimated
+              ? "icons animate__animated animate__zoomIn animate__slow"
+              : "icons"
+          }
+          style={{
+            display: isAnimated ? "block" : "none",
+            color: "cyan",
+          }}
         />
       </div>
     </div>
   );
 };
+
 export default Competencies;

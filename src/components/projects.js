@@ -13,7 +13,7 @@ const Myprojects = () => {
           <div className="wrapper">
             <img src={internshipTime} alt="Internship>Time" />
           </div>
-          <h2 style={{ color: "#8739f9" }}>Sekai</h2>
+          <h2 style={{ color: "#00bfff" }}>Sekai</h2>
           <div className="wrapper">
             <img src={sekai} alt="Sekai" />
           </div>
@@ -23,15 +23,11 @@ const Myprojects = () => {
           <div className="wrapper">
             <img src={sportcenter} alt="Cashier Sportcenter" />
           </div>
-          <h2 style={{ color: "#8739f9" }}>The Lost Fireboy</h2>
+          <h2 style={{ color: "#00bfff" }}>The Lost Fireboy</h2>
           <div className="wrapper">
             <img src={LostFireboy} alt="The Lost Fireboy" />
           </div>
         </div>
-      </div>
-      <div className="notes">
-        <div className="inDevelopment">in Development</div>
-        <div className="Maintenance">Maintenance</div>
       </div>
     </div>
   );

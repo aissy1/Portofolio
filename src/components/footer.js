@@ -1,8 +1,49 @@
-import { FaInstagram } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa6";
+import React, { useState, useEffect } from "react";
+import { FaWhatsapp, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
-import { FaLinkedinIn } from "react-icons/fa";
 import logo from "../assets/img/R.png";
+import "../App.css";
+
+const TypingEffect = ({ text, speed = 100, delay = 2000 }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
+
+  useEffect(() => {
+    if (index < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + text[index]);
+        setIndex((prev) => prev + 1);
+      }, speed);
+
+      return () => clearTimeout(timeout);
+    } else {
+      const resetTimeout = setTimeout(() => {
+        setDisplayedText("");
+        setIndex(0);
+        setIsTyping(false);
+      }, delay);
+
+      return () => clearTimeout(resetTimeout);
+    }
+  }, [index, text, speed, delay]);
+
+  const renderTextWithLineBreaks = () => {
+    return displayedText.split("\n").map((line, i) => (
+      <React.Fragment key={i}>
+        {line}
+        {i < displayedText.split("\n").length - 1 && <br />}
+      </React.Fragment>
+    ));
+  };
+
+  return (
+    <span>
+      {renderTextWithLineBreaks()}
+      {isTyping && <span className="cursor">I</span>}
+    </span>
+  );
+};
 
 const Footer = () => {
   const openContact = (contactType) => {
@@ -23,10 +64,17 @@ const Footer = () => {
         break;
     }
   };
+
   return (
-    <>
-      <img className="logo_icon" src={logo} alt="" />
-      <h1>Let people know when we're up</h1>
+    <div className="footer">
+      <img className="logo_icon" src={logo} alt="Logo" />
+      <h1>
+        <TypingEffect
+          text={`We mature through pain, not age`}
+          speed={180}
+          delay={5000}
+        />
+      </h1>
       <div className="btn_nav">
         <button className="btn" onClick={() => openContact("whatsapp")}>
           <FaWhatsapp className="icon" />
@@ -42,9 +90,9 @@ const Footer = () => {
         </button>
       </div>
       <div>
-        <p>Hancrafted by Me With React JS</p>
+        <p>Build With React</p>
       </div>
-    </>
+    </div>
   );
 };
 

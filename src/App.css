@@ -13,6 +13,18 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  body {
+    user-select: none;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+  }
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -32,7 +44,7 @@ nav {
   top: 0;
   height: 60px;
   width: 90%;
-  background-color: #00bfff6c;
+  background-color: rgba(218, 203, 177, 0.751);
   backdrop-filter: blur(10px);
   transform: translate(75px, 20px);
   border-radius: 20px;
@@ -44,7 +56,7 @@ ul {
   flex-direction: row;
   justify-content: flex-start;
   text-align: start;
-  width: 70%;
+  width: 80%;
   height: 30px;
   padding: 0;
   margin: 0;
@@ -52,7 +64,7 @@ ul {
 }
 
 li {
-  color: var(--color-5);
+  color: var(--color-8);
   font-size: 18px;
   list-style: none;
   text-decoration: none;
@@ -62,7 +74,7 @@ li {
 }
 
 li:first-child {
-  margin-right: 30rem;
+  margin-right: 30em;
 }
 
 .cta a {
@@ -74,7 +86,7 @@ li:first-child {
 
 .hover-underline-animation {
   position: relative;
-  color: var(--color-5);
+  color: var(--color-1);
   text-decoration: none;
 }
 
@@ -86,20 +98,14 @@ li:first-child {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: var(--color-5);
+  background-color: var(--color-1);
   transform-origin: bottom;
   transition: transform 0.25s ease-out;
 }
 
-
 .cta:hover .hover-underline-animation:after {
   transform: scaleX(1);
   transform-origin: bottom;
-}
-
-.animate_scroll {
-  background-color: #00bfff;
-  height: 10px;
 }
 
 #back-to-top-btn {
@@ -138,6 +144,39 @@ li:first-child {
   color: var(--color-1);
 }
 
+.circle1 {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 3px dashed var(--color-2);
+  right: 10px;
+  z-index: 98;
+}
+
+.circle2 {
+  border-radius: 50%;
+  width: 50%;
+  height: 50%;
+  border-top: 5px solid var(--color-8);
+  border-bottom: 5px solid var(--color-4);
+  box-shadow: 0 -10px 15px 0 var(--color-8), 0 10px 15px 0 var(--color-4);
+  animation: radar 3s linear .5s infinite forwards;
+}
+
+@keyframes radar {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .home {
   display: flex;
   flex-direction: row;
@@ -150,7 +189,7 @@ li:first-child {
   width: 600px;
   height: 200px;
   transform: translate(-60px, 0);
-  letter-spacing: 3;
+  letter-spacing: 1px;
 }
 
 .home_desk h1,
@@ -214,15 +253,18 @@ h2 {
   width: 360px;
   height: 360px;
   z-index: 2;
-  background: var(--color-4);
+  background: #f9fafc;
   border-radius: 50%;
   overflow: hidden;
   outline-offset: 20px;
   filter: drop-shadow(0px 20px 30px var(--color-2));
+  z-index: 98;
 }
 
 .profile {
-  width: 300px;
+  width: 100%;
+  object-fit: cover;
+  transform: translateY(20px);
   z-index: 99;
 }
 
@@ -237,8 +279,9 @@ h2 {
   border-radius: 90%;
   z-index: 0;
   opacity: .25;
+  transform: translate(-80px, -100px) scale(1);
   transition: opacity 6s;
-  animation: myAnim1 1.5s linear 1 normal forwards;
+  animation: myAnim1 4s linear 1s infinite;
 }
 
 .PiMusicNotesDuotone {
@@ -246,34 +289,25 @@ h2 {
   width: 50px;
 }
 
-.profile_top:hover {
-  opacity: 1;
-  z-index: 99;
-}
-
 @keyframes myAnim1 {
   0% {
-    opacity: 0;
-    z-index: 99;
-    transform: translate(255px, 110px) scale(0);
+    opacity: .5;
   }
 
   25% {
-    opacity: .5;
-    transform: translate(100px, 185px);
+    opacity: 1;
   }
 
   50% {
-    opacity: 1;
-    transform: translate(-20px, 155px);
+    opacity: .5;
   }
 
   75% {
-    transform: translate(-105px, 0);
+    opacity: 1;
   }
 
   100% {
-    transform: translate(-80px, -100px) scale(1);
+    opacity: .5;
   }
 }
 
@@ -286,20 +320,15 @@ h2 {
   width: 80px;
   height: 80px;
   border-radius: 90%;
-  opacity: 0.25;
-  transition: opacity 0.5s ease 0s;
+  opacity: .5;
+  transform: translate(145px, -120px) scale(1);
   z-index: 0;
-  animation: myAnim2 1.5s linear 1 normal forwards;
+  animation: myAnim2 4s linear 2s infinite;
 }
 
 .PiGameControllerDuotone {
   height: 50px;
   width: 50px;
-}
-
-.profile_side:hover {
-  opacity: 1;
-  z-index: 99;
 }
 
 .RiCodeSSlashFill {
@@ -309,30 +338,25 @@ h2 {
 
 @keyframes myAnim2 {
   0% {
-    opacity: 0;
-    z-index: 99;
-    transform: translate(-145px, 125px) scale(0);
+    opacity: .5;
   }
 
   25% {
-    opacity: .5;
-    transform: translate(-185px, 0);
+    opacity: 1;
   }
 
   50% {
-    opacity: 1;
-    transform: translate(-170px, -100px);
+    opacity: .5;
   }
 
   75% {
-    transform: translate(0, -185px);
+    opacity: 1;
   }
 
   100% {
-    transform: translate(145px, -120px) scale(1);
+    opacity: .5;
   }
 }
-
 
 .profile_bottom {
   border: 5px double var(--color-2);
@@ -343,45 +367,36 @@ h2 {
   width: 80px;
   height: 80px;
   border-radius: 90%;
-  opacity: .25;
-  transition: opacity 0.5s ease 0s;
+  opacity: .5;
+  transform: translate(75px, 110px) scale(1);
   z-index: 0;
-  animation: myAnim3 1.5s linear 1 normal forwards;
-}
-
-.profile_bottom:hover {
-  opacity: 1;
-  z-index: 98;
+  animation: myAnim3 4s linear 3s infinite;
 }
 
 @keyframes myAnim3 {
   0% {
-    opacity: .25;
-    z-index: 99;
-    transform: translate(-265px, -100px) scale(0);
+    opacity: .5;
   }
 
   25% {
-    opacity: .5;
-    transform: translate(-90px, -185px);
+    opacity: 1;
   }
 
   50% {
-    opacity: 1;
-    transform: translate(50px, -125px);
+    opacity: .5;
   }
 
   75% {
-    transform: translate(100px, 0);
+    opacity: 1;
   }
 
   100% {
-    transform: translate(75px, 110px) scale(1);
+    opacity: .5;
   }
 }
 
 .skill_section {
-  background-color: var(--color-2);
+  background-color: var(--color-1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -433,7 +448,9 @@ h2 {
 }
 
 .footer h1 {
+  width: 90%;
   color: var(--color-7);
+  text-align: center;
   padding: 0;
   margin: 0;
 }
@@ -478,6 +495,18 @@ h2 {
   width: 60%;
 }
 
+.cursor {
+  color: var(--color-7);
+  font-weight: bold;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 .btn:hover {
   background-color: var(--color-8);
   border-color: transparent;
@@ -489,24 +518,134 @@ h2 {
   transform: translateY(1px);
 }
 
+@media screen and (max-width: 1024px) {
+  li:first-child {
+    margin-right: 0;
+  }
+
+  .home {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home_desk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: center;
+    transform: translateX(0);
+  }
+
+  .home_desk h1 {
+    font-size: 20px;
+  }
+
+  .home_desk h3 {
+    font-size: 16px;
+  }
+
+  .desk {
+    font-size: 14px;
+    width: 75%;
+  }
+
+  .btn_contact {
+    width: 120px;
+    height: 40px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .profile_wrapper {
+    height: 400px;
+    width: 100%;
+    transform: translate(0, 0);
+  }
+
+  .profile_bg {
+    width: 50%;
+    height: 77%;
+  }
+
+  .profile {
+    transform: translateY(5px);
+  }
+
+  .profile_top {
+    transform: translate(10px, -80px);
+  }
+
+  .profile_side {
+    transform: translate(90px, -80px);
+  }
+
+  .profile_bottom {
+    transform: translate(0, 80px);
+  }
+
+  .circle1 {
+    width: 50px;
+    height: 50px;
+    top: 640px;
+  }
+
+  .circle2 {
+    border-top: 3px solid var(--color-8);
+    border-bottom: 3px solid var(--color-4);
+    box-shadow: 0 -5px 10px 0 var(--color-8), 0 5px 10px 0 var(--color-4);
+  }
+
+}
+
 
 @media screen and (max-width: 600px) {
   nav {
+    position: sticky;
     height: max-content;
-  }
-
-  .logo {
-    height: max-content;
-    transform: translate(0);
-    margin: 10px;
-  }
-
-  .logo a {
-    font-size: 14px;
-    letter-spacing: 1px;
+    width: 100%;
+    transform: translate(0, 0);
+    border-radius: 0 0 20px 20px;
   }
 
   ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: start;
+    width: 80%;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    gap: .5rem;
+  }
+
+  .cta a {
+    padding-bottom: 7px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  li:first-child {
+    margin-right: 0;
+  }
+
+  li:nth-child(2) {
+    display: none;
+  }
+
+  li:nth-child(3) {
+    display: none;
+  }
+
+  li:nth-child(4) {
     display: none;
   }
 
@@ -530,30 +669,32 @@ h2 {
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
-
   }
 
   .home_desk {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-
     text-align: center;
     transform: translateX(0);
   }
 
   .home_desk h1 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .home_desk h2 {
+    font-size: 14px;
+  }
+
+  .home_desk h3 {
     font-size: 16px;
   }
 
   .desk {
-    font-size: 14px;
+    font-size: 12px;
     width: 75%;
   }
 
@@ -569,11 +710,46 @@ h2 {
   }
 
   .profile_wrapper {
-    display: none;
+    height: 400px;
+    width: 100%;
+    transform: translate(0, 0);
   }
 
-  .skills_wrapp {
-    height: 60%;
+  .profile_bg {
+    width: 50%;
+    height: 52%;
+  }
+
+  .profile {
+    transform: translateY(5px);
+  }
+
+  .profile_top {
+    transform: translate(10px, -80px);
+  }
+
+  .profile_side {
+    transform: translate(90px, -80px);
+  }
+
+  .profile_bottom {
+    transform: translate(0, 80px);
+  }
+
+  .circle1 {
+    width: 50px;
+    height: 50px;
+    top: 640px;
+  }
+
+  .circle2 {
+    border-top: 3px solid var(--color-8);
+    border-bottom: 3px solid var(--color-4);
+    box-shadow: 0 -5px 10px 0 var(--color-8), 0 5px 10px 0 var(--color-4);
+  }
+
+  .skill_section {
+    height: 500px;
   }
 
   .skill_head {
@@ -582,9 +758,19 @@ h2 {
     margin-bottom: 30px;
   }
 
+  .skills_wrapp {
+    height: 40%;
+    width: 70%;
+  }
+
+  .projects h1 {
+    font-size: 24px;
+    margin-top: 0;
+  }
+
   .footer h1 {
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .btn {

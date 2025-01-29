@@ -1,5 +1,6 @@
 import React from "react";
-import profile from "./assets/img/profile (3).png";
+import Navbar from "./components/navbar";
+import profile from "./assets/img/bg putih.jpg";
 import Scroll from "./components/scrollTop";
 import Competencies from "./components/carousel";
 import Myprojects from "./components/projects";
@@ -18,43 +19,23 @@ function App() {
   return (
     <div id="App" className="App">
       <nav>
-        <ul>
-          <li className="cta">
-            <a className="hover-underline-animation" href="#App">
-              RXFIFRAIS.
-            </a>
-          </li>
-          <li className="cta">
-            <a className="hover-underline-animation" href="#App">
-              HOME
-            </a>
-          </li>
-          <li className="cta">
-            <a className="hover-underline-animation" href="#Projects">
-              PROJECTS
-            </a>
-          </li>
-          <li className="cta">
-            <a className="hover-underline-animation" href="#footer">
-              CONTACT
-            </a>
-          </li>
-        </ul>
-        {/* <div className="animate_scroll"></div> */}
+        <Navbar />
       </nav>
       <div className="home">
         <Scroll />
         <div className="home_desk">
-          <h1 className="animate__animated animate__fadeIn">Hi,</h1>
-          <h1 className="animate__animated animate__fadeIn ">
+          <h1 className="animate__animated animate__fadeIn animate__slow">
+            Hi,
+          </h1>
+          <h1 className="animate__animated animate__fadeIn animate__slow">
             I'm <span style={{ color: "#00bfff" }}>Rais</span>,
           </h1>
-          <h1 className="animate__animated animate__fadeIn">
-            <span style={{ color: "#00bfff" }}>Website</span> & {""}
+          <h1 className="animate__animated animate__fadeIn animate__slow">
+            <span style={{ color: "#00bfff" }}>Website</span> And {""}
             <span style={{ color: "#8739f9" }}>Software </span>
             <span style={{ color: "#f0f0f0" }}>Developer</span>
           </h1>
-          <h3 className="animate__animated animate__fadeIn">
+          <h3 className="animate__animated animate__fadeIn animate__slow">
             Front End Developer // .NET Developer
           </h3>
           <button className="btn_contact" onClick={handleClick}>
@@ -79,6 +60,9 @@ function App() {
             <PiGameControllerDuotone className="PiGameControllerDuotone" />
           </div>
         </div>
+      </div>
+      <div className="circle1">
+        <div className="circle2" />
       </div>
       <div className="skill_section">
         <h1 className="skill_head">Tech Stack & Tools</h1>

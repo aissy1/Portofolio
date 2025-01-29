@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60%;
+    height: max-content;
 }
 
 .container {
@@ -48,41 +48,17 @@ img {
     overflow: hidden;
 }
 
-.notes {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 18px;
-    text-align: center;
-    margin-top: 60px;
-    gap: 20px;
-}
-
-.inDevelopment {
-    border-radius: 4px;
-    background-color: var(--color-4);
-    color: var(--color-6);
-    height: max-content;
-    width: 160px;
-}
-
-.Maintenance {
-    border-radius: 4px;
-    background-color: var(--color-3);
-    color: var(--color-2);
-    height: max-content;
-    width: 160px;
-}
-
 @media screen and (max-width : 600px) {
     .container {
+        flex-direction: column;
         align-items: center;
         height: 60%;
+        gap: 2em;
     }
 
     .content_wrapper {
         align-self: center;
-        height: 40%;
+        height: max-content;
     }
 
     .content_wrapper h2 {
@@ -90,7 +66,7 @@ img {
     }
 
     .wrapper {
-        height: 35%;
+        height: 45%;
     }
 
     img {
