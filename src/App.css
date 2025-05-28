@@ -144,39 +144,6 @@ li:first-child {
   color: var(--color-1);
 }
 
-.circle1 {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
-  border: 3px dashed var(--color-2);
-  right: 10px;
-  z-index: 98;
-}
-
-.circle2 {
-  border-radius: 50%;
-  width: 50%;
-  height: 50%;
-  border-top: 5px solid var(--color-8);
-  border-bottom: 5px solid var(--color-4);
-  box-shadow: 0 -10px 15px 0 var(--color-8), 0 10px 15px 0 var(--color-4);
-  animation: radar 3s linear .5s infinite forwards;
-}
-
-@keyframes radar {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .home {
   display: flex;
   flex-direction: row;
@@ -516,92 +483,6 @@ h2 {
 
 .btn:active {
   transform: translateY(1px);
-}
-
-@media screen and (max-width: 1024px) {
-  li:first-child {
-    margin-right: 0;
-  }
-
-  .home {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .home_desk {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    text-align: center;
-    transform: translateX(0);
-  }
-
-  .home_desk h1 {
-    font-size: 20px;
-  }
-
-  .home_desk h3 {
-    font-size: 16px;
-  }
-
-  .desk {
-    font-size: 14px;
-    width: 75%;
-  }
-
-  .btn_contact {
-    width: 120px;
-    height: 40px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-
-  .text {
-    font-size: 16px;
-  }
-
-  .profile_wrapper {
-    height: 400px;
-    width: 100%;
-    transform: translate(0, 0);
-  }
-
-  .profile_bg {
-    width: 50%;
-    height: 77%;
-  }
-
-  .profile {
-    transform: translateY(5px);
-  }
-
-  .profile_top {
-    transform: translate(10px, -80px);
-  }
-
-  .profile_side {
-    transform: translate(90px, -80px);
-  }
-
-  .profile_bottom {
-    transform: translate(0, 80px);
-  }
-
-  .circle1 {
-    width: 50px;
-    height: 50px;
-    top: 640px;
-  }
-
-  .circle2 {
-    border-top: 3px solid var(--color-8);
-    border-bottom: 3px solid var(--color-4);
-    box-shadow: 0 -5px 10px 0 var(--color-8), 0 5px 10px 0 var(--color-4);
-  }
-
 }
 
 

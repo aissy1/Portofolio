@@ -61,9 +61,6 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="circle1">
-        <div className="circle2" />
-      </div>
       <div className="skill_section">
         <h1 className="skill_head">Tech Stack & Tools</h1>
         <div className="skills_wrapp">
