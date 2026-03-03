@@ -1,52 +1,49 @@
 .skills_wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    height: 90%;
+    height: 59px;
     width: 90%;
-    column-gap: 30px;
-    row-gap: 100px;
+}
+
+.slick-slide {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.slick-slide>div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .content {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 30%;
-    width: 20%;
-}
-
-.icons {
-    display: none;
+    width: 100%;
     height: 100%;
-    width: 60%;
 }
 
-@keyframes spinner {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+.iconComponent {
+    display: block !important;
+    font-size: 55px;
+    margin: auto;
 }
+
 
 @media screen and (max-width: 600px) {
     .skills_wrapper {
-        row-gap: 20px;
+        width: 60%;
     }
 
     .content {
         height: 20%;
-        width: 25%;
+        width: 45%;
     }
 
-    .icons {
-        width: 75%;
+    .iconComponent {
+        font-size: 30px;
     }
 
     .icons_react {

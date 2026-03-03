@@ -1,102 +1,99 @@
 import { useState, useEffect, useRef } from "react";
 import { DiHtml5, DiCss3, DiJsBadge, DiReact } from "react-icons/di";
+import { FaLaravel } from "react-icons/fa";
+import { SiTailwindcss } from "react-icons/si";
 import { FaBootstrap } from "react-icons/fa";
 import { SiPhp } from "react-icons/si";
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./carousel.css";
+
+const techStack = [
+  { name: "HTML5", icon: DiHtml5, color: "#FF6D00" },
+  { name: "CSS3", icon: DiCss3, color: "cyan" },
+  { name: "Bootstrap", icon: FaBootstrap, color: "#8739f9" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "cyan" },
+  { name: "PHP", icon: SiPhp, color: "#DCD5F2" },
+  { name: "JavaScript", icon: DiJsBadge, color: "yellow" },
+  { name: "React", icon: DiReact, color: "cyan" },
+  { name: "Laravel", icon: FaLaravel, color: "orange" },
+];
 
 const Competencies = () => {
-  const [isAnimated, setAnimate] = useState(false);
+  const [isVisible, setVisible] = useState(false);
   const sectionRef = useRef(null);
+  const [startAutoplay, setStartAutoplay] = useState(false);
 
   useEffect(() => {
-    const currentRef = sectionRef.current;
-
     const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setAnimate(true);
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+
+          setTimeout(() => {
+            setStartAutoplay(true);
+          }, 1000);
         } else {
-          setAnimate(false);
+          setVisible(false);
+          setStartAutoplay(false);
         }
       },
-      { threshold: 0.8 }
+      { threshold: 0.6 }
     );
 
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
+    return () => observer.disconnect();
   }, []);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    cssEase: "linear",
+    swipe: false,
+    speed: 3000,
+    autoplaySpeed: 3000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: false,
+    pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <div className="skills_wrapper" ref={sectionRef}>
-      <div className="content">
-        <DiHtml5
-          className={
-            isAnimated
-              ? "icons animate__animated animate__zoomIn animate__slow"
-              : "icons"
-          }
-          style={{ display: isAnimated ? "block" : "none", color: "#FF6D00" }}
-        />
-      </div>
-      <div className="content">
-        <DiCss3
-          className={
-            isAnimated
-              ? "icons animate__animated animate__zoomIn animate__slow"
-              : "icons"
-          }
-          style={{ display: isAnimated ? "block" : "none", color: "cyan" }}
-        />
-      </div>
-      <div className="content">
-        <FaBootstrap
-          className={
-            isAnimated
-              ? "icons animate__animated animate__zoomIn animate__slow"
-              : "icons"
-          }
-          style={{ display: isAnimated ? "block" : "none", color: "#8739f9" }}
-        />
-      </div>
-      <div className="content">
-        <SiPhp
-          className={
-            isAnimated
-              ? "icons animate__animated animate__zoomIn animate__slow"
-              : "icons"
-          }
-          style={{ display: isAnimated ? "block" : "none", color: "#DCD5F2" }}
-        />
-      </div>
-      <div className="content">
-        <DiJsBadge
-          className={
-            isAnimated
-              ? "icons animate__animated animate__zoomIn animate__slow"
-              : "icons"
-          }
-          style={{ display: isAnimated ? "block" : "none", color: "yellow" }}
-        />
-      </div>
-      <div className="content">
-        <DiReact
-          className={
-            isAnimated
-              ? "icons animate__animated animate__zoomIn animate__slow"
-              : "icons"
-          }
-          style={{
-            display: isAnimated ? "block" : "none",
-            color: "cyan",
-          }}
-        />
-      </div>
+      <Slider {...settings}>
+        {techStack.map((tech, index) => {
+          const IconComponent = tech.icon;
+          return (
+            <div
+              key={index}
+              className={`content ${
+                isVisible ? "animate__animated animate__fadeIn" : ""
+              }`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <IconComponent className="iconComponent" color={tech.color} />
+            </div>
+          );
+        })}
+      </Slider>
     </div>
   );
 };
