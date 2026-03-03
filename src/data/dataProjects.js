@@ -1,6 +1,7 @@
 import internshipTime from "../assets/project/internshipTime.png";
 import sekai from "../assets/project/Sekai.png";
 import ERP from "../assets/project/ERP.png";
+import testEnglish from "../assets/project/testEnglish.png";
 
 const mapProjects = [
   {
@@ -20,7 +21,7 @@ const mapProjects = [
   },
   {
     title: "Test English",
-    img: sekai,
+    img: testEnglish,
     desc: "TEP (Test of English Practice) is a web-based English proficiency testing platform built using Laravel, React, Inertia.js, Python, and Tailwind CSS. The system simulates a TOEFL ITP-style examination, including structured subtests such as Listening, Structure, and Reading, along with an additional essay-based writing section. It provides timed assessments, automated scoring support, and a responsive interface to deliver a comprehensive test simulation experience.",
   },
 ];
