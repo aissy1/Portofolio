@@ -24,20 +24,14 @@ const techStack = [
 const Competencies = () => {
   const [isVisible, setVisible] = useState(false);
   const sectionRef = useRef(null);
-  const [startAutoplay, setStartAutoplay] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-
-          setTimeout(() => {
-            setStartAutoplay(true);
-          }, 1000);
         } else {
           setVisible(false);
-          setStartAutoplay(false);
         }
       },
       { threshold: 0.6 }

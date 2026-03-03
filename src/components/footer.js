@@ -1,6 +1,5 @@
 import { FaWhatsapp, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
-import logo from "../assets/img/R.png";
 import "../App.css";
 
 const Footer = () => {
