@@ -1,7 +1,7 @@
 import internshipTime from "../assets/project/internshipTime.png";
 import sekai from "../assets/project/Sekai.png";
 import ERP from "../assets/project/ERP.png";
-import testEnglish from "../assets/project/testEnglish.png";
+import toefl from "../assets/project/testEnglish.png";
 
 const mapProjects = [
   {
