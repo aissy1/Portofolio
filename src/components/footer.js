@@ -6,7 +6,7 @@ const Footer = () => {
   const openContact = (contactType) => {
     switch (contactType) {
       case "whatsapp":
-        window.location.href = "https://wa.me/6282334465235";
+        window.location.href = "https://wa.me/628213313025";
         break;
       case "instagram":
         window.location.href = "https://www.instagram.com/rxfifrais/";
